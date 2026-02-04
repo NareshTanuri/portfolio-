@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --buttonColor: linear-gradient(90deg, #8b51fB 0%, #e614e1 100%);
+    --white: #FFFFFF;
+    --primaryColor1_pink: #e614e1;
+    --primaryColor2_blue: #8b51fe;
+    --bg-color: #f8f9fa;
+}
