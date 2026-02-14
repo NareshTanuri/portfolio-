@@ -15,7 +15,7 @@ import {
 
 import { useEffect, useState } from "react";
 
-export default function HomePage() {
+export default function MyHomePage() {
 
   const roles = [
     "Frontend Developer",
