@@ -110,6 +110,7 @@ export default function Navbar() {
         {/* Right - Desktop Button */}
         <Box sx={{ ml: "auto", display: { xs: "none", md: "block" } }}>
           <Button
+            onClick={handleDownload}
             variant="contained"
             sx={{
               backgroundColor: "#14f1d9",
