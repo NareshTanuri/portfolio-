@@ -138,7 +138,6 @@ export default function Navbar() {
             </Button>
           </MenuItem>
         </Menu>
-
       </Toolbar>
     </AppBar>
   );
