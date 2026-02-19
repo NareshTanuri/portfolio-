@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
+import myResume from "../assets/_NareshExprienceReusme.pdf";
 
 const navItems = [
   { label: "Home", id: "home" },
@@ -49,6 +50,14 @@ export default function Navbar() {
     handleCloseMenu();
   };
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = myResume;
+    link.download = "Naresh_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <AppBar position="fixed" sx={{ background: "black" }}>
@@ -133,7 +142,7 @@ export default function Navbar() {
             </MenuItem>
           ))}
           <MenuItem>
-            <Button fullWidth variant="contained">
+            <Button fullWidth variant="contained" onClick={handleDownload}>
               View Resume
             </Button>
           </MenuItem>
