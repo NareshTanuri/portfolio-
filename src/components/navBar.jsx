@@ -1,117 +1,3 @@
-// import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-// import { useState, useEffect } from "react";
-// import myResume from "../assets/_NareshExprienceReusme.pdf";
-
-
-// const navItems = [
-//   { label: "Home", id: "home" },
-//   { label: "Featured projects", id: "projects" },
-//   { label: "About me", id: "about" },
-//   { label: "Contact me", id: "contact" },
-// ];
-
-// export default function Navbar() {
-//   const [active, setActive] = useState("home");
-
-//   const handleScroll = (id) => {
-//     const element = document.getElementById(id);
-//     if (element) {
-//       element.scrollIntoView({ behavior: "smooth" });
-//       setActive(id);
-//     }
-//   };
-
-//   // Detect active section while scrolling
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       (entries) => {
-//         entries.forEach((entry) => {
-//           if (entry.isIntersecting) {
-//             setActive(entry.target.id);
-//           }
-//         });
-//       },
-//       { threshold: 0.6 }
-//     );
-
-//     navItems.forEach((item) => {
-//       const section = document.getElementById(item.id);
-//       if (section) observer.observe(section);
-//     });
-
-//     return () => observer.disconnect();
-//   }, []);
-
-//   const handleDownload = () => {
-//     const link = document.createElement("a");
-//     link.href = myResume;
-//     link.download = "Naresh_Resume.pdf";
-//     document.body.appendChild(link);
-//     link.click();
-//     document.body.removeChild(link);
-//   };
-
-//   return (
-//     <AppBar elevation={0} sx={{ background: "transparent" }}>
-//       <Toolbar sx={{ justifyContent: "space-between" }}>
-//         <Typography variant="h6" fontWeight="bold">
-//           Naresh<span style={{ color: "#14f1d9" }}>.</span>
-//         </Typography>
-
-// <Box sx={{ display: "flex", gap: 1 }}>
-//   {navItems.map((item) => {
-//     const isActive = active === item.id;
-
-//     return (
-//       <Typography
-//         key={item.id}
-//         onClick={() => handleScroll(item.id)}
-// sx={{
-//   px: 2,
-//   py: 1,
-//   borderRadius: "8px",
-//   cursor: "pointer",
-//   fontSize: "0.95rem",
-//   transition: "all 0.3s ease",
-//   backgroundColor: isActive
-//     ? "rgba(20,241,217,0.15)"
-//     : "transparent",
-//   color: isActive ? "#14f1d9" : "text.secondary",
-//   "&:hover": {
-//     backgroundColor: "rgba(20,241,217,0.15)",
-//     color: "#14f1d9",
-//   },
-// }}
-//       >
-//         {item.label}
-//       </Typography>
-//     );
-//   })}
-// </Box>
-
-//         <Button
-//           variant="contained"
-//           sx={{
-//             backgroundColor: "#14f1d9",
-//             color: "#000",
-//             fontWeight: 600,
-//             borderRadius: "8px",
-//             px: 3,
-//             "&:hover": {
-//               backgroundColor: "#12d7c0",
-//             },
-//           }}
-//           onClick={handleDownload}
-//         >
-//           View Resume
-//         </Button>
-//       </Toolbar>
-//     </AppBar>
-//   );
-// }
-
-
-
 import {
   AppBar,
   Toolbar,
@@ -147,9 +33,22 @@ export default function Navbar() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setActive(id);
     }
     handleCloseMenu();
   };
+
+  const handleChange = (id) => {
+    setActive(id);
+
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+
+    handleCloseMenu();
+  };
+
 
   return (
     <AppBar position="fixed" sx={{ background: "black" }}>
@@ -229,7 +128,7 @@ export default function Navbar() {
           onClose={handleCloseMenu}
         >
           {navItems.map((item) => (
-            <MenuItem key={item.id} onClick={() => handleScroll(item.id)}>
+            <MenuItem key={item.id} onClick={() => { handleChange(item.id); handleScroll(item.id) }}>
               {item.label}
             </MenuItem>
           ))}
