@@ -11,10 +11,10 @@ export default function App() {
   return (
     <>
       <Navbar />
-
       <Box sx={{ backgroundColor: "black", color: "white", pt: 10 }}>
-        <MyHomePage />  
+        <MyHomePage />
       </Box>
+
 
       <Box sx={{ backgroundColor: "#131313", color: "white", pt: 5, pb: 5 }}>
         <Projects />

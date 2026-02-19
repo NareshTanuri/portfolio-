@@ -14,10 +14,10 @@ import myImage from "../../assets/Naresh.jpeg"
 import myResume from "../../assets/_NareshExprienceReusme.pdf";
 
 export default function About() {
-  
+
   const skills = [
     { label: "HTML5", shape: "circle" },
-    { label: "JAVASCRIPT", shape: "rect" },
+    { label: "JS", shape: "rect" },
     { label: "CSS3", shape: "circle" },
     { label: "REACT", shape: "pill" },
     { label: "MATERIAL UI", shape: "rect" },
@@ -60,8 +60,8 @@ export default function About() {
             <Box
               sx={{
                 position: "relative",
-                width: 320,
-                height: 320,
+                width: { xs: 240, sm: 280, md: 320 },
+                height: { xs: 240, sm: 280, md: 320 },
                 mx: "auto",
                 borderRadius: "50%",
                 border: "2px solid #14f1d9",
@@ -222,8 +222,9 @@ function SkillPill({ skill }) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: 14,
+    fontSize: { xs: 11, sm: 12, md: 14 }, // ✅ Responsive font
     letterSpacing: 0.5,
+    textAlign: "center",
     transition: "all 0.3s ease",
     cursor: "default",
     "&:hover": {
@@ -234,18 +235,18 @@ function SkillPill({ skill }) {
 
   const shapes = {
     circle: {
-      width: 70,
-      height: 70,
+      width: { xs: 60, md: 70 },
+      height: { xs: 60, md: 70 },
       borderRadius: "50%"
     },
     rect: {
-      width: 140,
-      height: 60,
+      width: { xs: 60, md: 70 },
+      height: { xs: 60, md: 70 },
       borderRadius: "12px"
     },
     pill: {
-      width: 120,
-      height: 60,
+      width: { xs: 60, md: 70 },
+      height: { xs: 60, md: 70 },
       borderRadius: "30px"
     }
   };
